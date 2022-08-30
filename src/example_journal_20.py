@@ -527,7 +527,7 @@ def update_policy_match(ts_policy):
 def setup_logging():
     fs, dfs = '%(asctime)s %(levelname)s %(message)s', '%m/%d/%Y %I:%M:%S %p'
     loglevel = logging.DEBUG
-    logging.basicConfig(filename='../output/example_S2J.log', level=loglevel,
+    logging.basicConfig(filename='..multi-agt-TWTL-synth\\output\\example_S2J.log', level=loglevel,
                         format=fs, datefmt=dfs)
     root = logging.getLogger()
     ch = logging.StreamHandler(sys.stdout)
@@ -578,7 +578,7 @@ if __name__ == '__main__':
     phi2 = '[H^1 r14]^[0, 5] * ([H^3 r10]^[0, 7] | [H^3 r11]^[0, 7] | [H^3 r5]^[0, 7])' # P2, D1 or D2 or D3
     phi3 = '[H^1 r14]^[0, 5] * ([H^3 r10]^[0, 7] | [H^3 r11]^[0, 7] | [H^3 r5]^[0, 7])' # P2, D1 or D2 or D3
     phi = [phi1, phi2, phi3]
-    ts_files = ['../data/scenario2J/Env1/ts_3x6x1_3Ag_1.txt', '../data/scenario2J/Env1/ts_3x6x1_3Ag_2.txt', '../data/scenario2J/Env1/ts_3x6x1_3Ag_3.txt']
+    ts_files = ['../multi-agt-TWTL-synth/data/scenario2J/Env1/ts_3x6x1_3Ag_1.txt', '../multi-agt-TWTL-synth/data/scenario2J/Env1/ts_3x6x1_3Ag_2.txt', '../multi-agt-TWTL-synth/data/scenario2J/Env1/ts_3x6x1_3Ag_3.txt']
 
     ''' Define alpha [0:1] for weighted average function: w' = min[alpha*time_weight + (1-alpha)*edge_weight]
         Note: For alpha=0 we only account for the weighted transition system (edge_weight),

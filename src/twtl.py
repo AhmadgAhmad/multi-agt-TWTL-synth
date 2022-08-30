@@ -289,7 +289,7 @@ def translate(formula, kind='both', norm=False, optimize=True):
         translator = twtl2dfa(nodes)
         translator.props = alphabet
         translator.eval()
-        dfa_inf = translator.getDFA()
+        dfa_inf = translator.getDFA() # rho algorithm 
         dfa_inf.kind = DFAType.Infinity
         result.append(dfa_inf)
 
