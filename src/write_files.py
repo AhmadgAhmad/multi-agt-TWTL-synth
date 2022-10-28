@@ -27,7 +27,9 @@ def write_to_csv_iter(ts, ts_write, ids, time_wp):
     ''' Writes the control policy to an output file in CSV format to be used
     as waypoints for a trajectory run by our Crazyflies. '''
     # altitude = 1.0 # meters
-    with open('../output/waypoints_dynamic.csv', 'w') as f:
+    # with open('../output/waypoints_dynamic.csv', 'w') as f:
+    with open('../multi-agt-TWTL-synth/output/waypoints_dynamic_singleAgt.csv', 'w') as f:
+        
         writer = csv.writer(f)
         header = ['id', 'x[m]', 'y[m]', 'z[m]', 't[s]']
         writer.writerow(header)
@@ -59,7 +61,8 @@ def write_to_csv(ts, ts_policy, id, time_wp):
                         writer.writerow([id, node_set[node][0], node_set[node][1], z, time_wp*ind])
                         break
     else:
-        with open('../output/waypoints_S2J.csv', 'w') as f:
+        # with open('../output/waypoints_S2J.csv', 'w') as f:
+        with open('../multi-agt-TWTL-synth/output/waypoints_S2J_singleAgt.csv', 'w') as f:
             writer = csv.writer(f)
             header = ['id', 'x[m]', 'y[m]', 'z[m]', 't[s]']
             writer.writerow(header)
@@ -84,7 +87,8 @@ def write_to_priority(priority_order):
                 p_row.append(p)
             writer.writerow(p_row)
     else:
-        with open('../output/priority_S2J.csv', 'w') as f:
+        # with open('../output/priority_S2J.csv', 'w') as f:
+        with open('../multi-agt-TWTL-synth/output/priority_S2J_singleAgt.csv', 'w') as f:
             writer = csv.writer(f)
             p_row = []
             for p in priority_order:
@@ -107,7 +111,7 @@ def write_to_iter_file(policy, ts, ets, key, iter_step):
             f1.write('%s:  ' % iter_step)
             f1.write('%s\n\n' % out.getvalue())
     else:
-        with open('../output/control_policy_updates_S2J.txt', 'w+') as f1:
+        with open('../multi-agt-TWTL-synth/output/control_policy_updates_S2J_singleAgt.txt', 'w+') as f1:
             f1.write('Control Policy for agent %s at step ' % key)
             f1.write('%s:  ' % iter_step)
             f1.write('%s\n\n' % out.getvalue())
@@ -139,7 +143,7 @@ def write_to_control_policy_file(ts_nom_policy, pa_nom_policy, tau, dfa, ts, ets
                 f2.write(') -> ('.join('%s %s' % x for x in pa_policy))
                 f2.write(') \nGenerated TS control policy is:  %s \n\n' % ts_policy)
         else:
-            with open('../output/control_policy_S2J.txt', 'w+') as f2:
+            with open('../multi-agt-TWTL-synth/output/control_policy_S2J_singleAgt.txt', 'w+') as f2:
                 f2.write('Nominal Control Policy for agent %s.\n' % key)
                 f2.write('Optimal relaxation is: %s \n' % tau)
                 f2.write('Generated PA control policy is: (')

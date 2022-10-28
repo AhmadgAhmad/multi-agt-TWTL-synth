@@ -321,8 +321,8 @@ def translate(formula, kind='both', norm=False, optimize=True):
 if __name__ == '__main__':
 #     print translate('[H^3 !A]^[0, 8] * [H^2 B & [H^4 C]^[3, 9]]^[2, 19]',
 #                     kind=DFAType.Normal, norm=True)
-
-    res = translate('[H^2 A]^[0, 4] | [H^2 B]^[2, 5]',
+    twtl_formula = 'H^3 A . H^5 B . [H^5 A]^[10,15]'
+    res = translate(twtl_formula,
                     kind=DFAType.Infinity, norm=True)
 
     print res
